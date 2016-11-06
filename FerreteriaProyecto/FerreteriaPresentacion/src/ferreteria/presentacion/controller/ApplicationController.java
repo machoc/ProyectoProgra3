@@ -52,12 +52,20 @@ public class ApplicationController {
     
     public void mostrarFactura(){
         Empleado principal = (Empleado) session.getAttribute(Application.USER_ATTRIBUTE);
-        if ( !Arrays.asList(Application.ROL_CAJERO).contains(principal.getRol())){
+        if ( !Arrays.asList(Application.ROL_VENDEDOR).contains(principal.getRol())){
             model.setMensaje(Application.ROL_NOTAUTHORIZED);
             return;
         }
         Application.FACTURAS_VIEW.setVisible(true);
     
+    }
+    
+    public void mostrarFacturaPago(){
+        Empleado principal = (Empleado) session.getAttribute(Application.USER_ATTRIBUTE);
+        if(!Arrays.asList(Application.ROL_CAJERO).contains(principal.getRol())){
+            return;
+        }
+        Application.FACTURAS_VIEW.setVisible(true);
     }
 
     public void enter() {

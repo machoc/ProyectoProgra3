@@ -52,6 +52,7 @@ public class ApplicationView extends javax.swing.JFrame implements Observer {
         f05menu = new javax.swing.JMenu();
         f5menuitem = new javax.swing.JMenuItem();
         f06menu = new javax.swing.JMenu();
+        f06menuitem = new javax.swing.JMenuItem();
         f07menu = new javax.swing.JMenu();
         helpmenu = new javax.swing.JMenu();
         aboutmenu = new javax.swing.JMenuItem();
@@ -159,6 +160,15 @@ public class ApplicationView extends javax.swing.JFrame implements Observer {
                 f06menuActionPerformed(evt);
             }
         });
+
+        f06menuitem.setText("F-06");
+        f06menuitem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                f06menuitemActionPerformed(evt);
+            }
+        });
+        f06menu.add(f06menuitem);
+
         jMenuBar1.add(f06menu);
 
         f07menu.setText("F-07");
@@ -259,6 +269,10 @@ public class ApplicationView extends javax.swing.JFrame implements Observer {
         controller.mostrarFactura();
     }//GEN-LAST:event_f5menuitemActionPerformed
 
+    private void f06menuitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f06menuitemActionPerformed
+        controller.mostrarFacturaPago();
+    }//GEN-LAST:event_f06menuitemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -308,6 +322,7 @@ public class ApplicationView extends javax.swing.JFrame implements Observer {
     private javax.swing.JMenuItem f04menuitem;
     private javax.swing.JMenu f05menu;
     private javax.swing.JMenu f06menu;
+    private javax.swing.JMenuItem f06menuitem;
     private javax.swing.JMenu f07menu;
     private javax.swing.JMenuItem f5menuitem;
     private javax.swing.JMenu helpmenu;

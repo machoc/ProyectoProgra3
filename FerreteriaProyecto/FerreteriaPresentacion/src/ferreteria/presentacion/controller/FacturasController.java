@@ -49,7 +49,8 @@ public class FacturasController {
     }
 
     public void editar(int row) {
-        model.clearErrors();        
+        model.clearErrors();     
+        
         FacturaModel facturaModel = Application.FACTURA_VIEW.getModel();
         Factura seleccionada = model.getFacturas().getRowAt(row); 
         facturaModel.clearErrors();
@@ -68,7 +69,7 @@ public class FacturasController {
     public void preAgregar(){
         model.clearErrors();        
         Empleado principal = (Empleado) session.getAttribute(Application.USER_ATTRIBUTE);
-        if ( !Arrays.asList(Application.ROL_CAJERO).contains(principal.getRol())){
+        if ( !Arrays.asList(Application.ROL_VENDEDOR).contains(principal.getRol())){
             model.setMensaje(Application.ROL_NOTAUTHORIZED);
             model.commit();
             return;
@@ -81,7 +82,13 @@ public class FacturasController {
     }
     
     public void borrar(int row){
-        model.clearErrors();        
+        model.clearErrors(); 
+        Empleado principal = (Empleado) session.getAttribute(Application.USER_ATTRIBUTE);
+        if ( !Arrays.asList(Application.ROL_DESPACHADOR).contains(principal.getRol())){
+            model.setMensaje(Application.ROL_NOTAUTHORIZED);
+            model.commit();
+            return;
+        }
         Factura seleccionada = model.getFacturas().getRowAt(row); 
         try {
             domainModel.eliminarFactura(seleccionada);
