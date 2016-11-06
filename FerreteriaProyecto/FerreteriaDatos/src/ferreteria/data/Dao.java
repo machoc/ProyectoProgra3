@@ -79,8 +79,11 @@ public class Dao {
                 "values('%s','%s','%s',%b,%b, '%s','%s','%s')";
         sql=String.format(sql,f.getNumFactura(),f.getFecha(),f.getHora(),f.isCancelada(),
                 f.isDepachada(),f.getNumFerreteria(),f.getIdCliente().getIdCliente(),f.getIdEmpleado().getIdEmpleado());
-        int count=db.executeUpdate(sql);
-        if(count==0){
+        ResultSet keys = db.executeUpdateWithKeys(sql);
+        try{
+            keys.next();
+        }
+        catch(Exception ex){
             throw new Exception("Factura ya existe");
         }
     }

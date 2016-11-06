@@ -65,6 +65,7 @@ insert into Factura (numFactura,fecha,hora,cancelada,despachada,numFerreteria,Cl
 
 create table Lineas(
 numFactura1 varchar(10) not null,
+cantidad int not null,
 codigo varchar(6) not null,
 primary key(numFactura1)
 );
@@ -72,7 +73,7 @@ primary key(numFactura1)
 ALTER TABLE Lineas ADD foreign key(numFactura1) references Factura(numFactura);
 ALTER TABLE Lineas ADD foreign key(codigo) references Producto(codigo);
 
-insert into Lineas(numFactura1,codigo) values ('000','061096');
+insert into Lineas(numFactura1,cantidad,codigo) values ('000',3,'061096');
 
 
 

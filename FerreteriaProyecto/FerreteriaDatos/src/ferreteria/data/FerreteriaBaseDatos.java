@@ -63,6 +63,17 @@ public final class FerreteriaBaseDatos {
             return 0;
         }
     }
+    
+    public ResultSet executeUpdateWithKeys(String statement) {
+        try {
+            Statement stm = cnx.createStatement();
+            stm.executeUpdate(statement,Statement.RETURN_GENERATED_KEYS);
+            return stm.getGeneratedKeys();
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
+    
     public ResultSet executeQuery(String statement){
         try {
             Statement stm = cnx.createStatement();

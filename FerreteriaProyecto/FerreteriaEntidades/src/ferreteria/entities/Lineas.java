@@ -13,15 +13,26 @@ public class Lineas {
     
     private Factura numFactura;
     private Producto codigo;
+    private int cantidad;
 
-    public Lineas(Factura numFactura, Producto codigo) {
+    public Lineas(Factura numFactura, Producto codigo,int cantidad) {
         this.numFactura = numFactura;
         this.codigo = codigo;
+        this.cantidad = cantidad;
     }
 
     public Lineas() {
         this.numFactura = new Factura();
         this.codigo = new Producto();
+        this.cantidad = 0;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
     public Factura getNumFactura() {
