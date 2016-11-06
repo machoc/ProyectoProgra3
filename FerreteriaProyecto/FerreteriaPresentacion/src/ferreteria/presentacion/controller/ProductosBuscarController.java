@@ -6,6 +6,7 @@
 package ferreteria.presentacion.controller;
 
 import ferreteria.Session;
+import ferreteria.entities.Factura;
 import ferreteria.entities.Lineas;
 import ferreteria.entities.Producto;
 import ferreteria.logic.Model;
@@ -22,6 +23,7 @@ public class ProductosBuscarController {
     Session session;
     ProductosBuscarView view;
     ProductosBuscarModel model;
+    
     
 
     public ProductosBuscarController(ProductosBuscarView view, ProductosBuscarModel model, Model domainModel, Session session) {
@@ -60,6 +62,10 @@ public class ProductosBuscarController {
     public void seleccionar(int row){
         Producto seleccionado = model.getPrductos().getRowAt(row); 
         model.setSelected(seleccionado);
+        Producto p;
+        Factura f;
+        List<Lineas> lineas = null;
+        lineas.add(new Lineas(f.getNumFactura(),p.getCodigo()));
         view.setVisible(false);
      }
    

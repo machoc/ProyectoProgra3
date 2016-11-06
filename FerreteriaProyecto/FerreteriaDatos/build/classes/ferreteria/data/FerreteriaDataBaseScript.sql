@@ -72,7 +72,7 @@ primary key(numFactura1)
 ALTER TABLE Lineas ADD foreign key(numFactura1) references Factura(numFactura);
 ALTER TABLE Lineas ADD foreign key(codigo) references Producto(codigo);
 
-
+insert into Lineas(numFactura1,codigo) values ('000','061096');
 
 
 

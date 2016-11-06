@@ -110,13 +110,10 @@ public class FacturaController {
             model.setMensaje("HAY ERRORES ...");
             model.setCurrent(nueva);
         }
-    }   
+    }  
 
     public void buscar(int row) {
-         Application.PRODUCTOS_BUSCAR.setVisible(true);
-         
+        Application.PRODUCTOS_BUSCAR.setVisible(true);
     }
-    
-    
-    
+        
 }
