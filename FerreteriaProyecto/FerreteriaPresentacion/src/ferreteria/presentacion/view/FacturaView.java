@@ -62,6 +62,8 @@ public class FacturaView extends JDialog implements Observer {
         jScrollPane1 = new javax.swing.JScrollPane();
         lineasFld = new javax.swing.JTable();
         borrarlineaBtn = new javax.swing.JButton();
+        pagarBtn = new javax.swing.JButton();
+        despacharBtn = new javax.swing.JButton();
 
         setTitle("FACTURA");
         setIconImage(null);
@@ -127,6 +129,10 @@ public class FacturaView extends JDialog implements Observer {
             }
         });
 
+        pagarBtn.setText("PAGAR");
+
+        despacharBtn.setText("DESPACHAR");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -176,12 +182,15 @@ public class FacturaView extends JDialog implements Observer {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 772, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(borrarlineaBtn))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(borrarlineaBtn)
+                                    .addComponent(pagarBtn)
+                                    .addComponent(despacharBtn)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(productoLbl)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(buscarButton)))
-                        .addGap(0, 85, Short.MAX_VALUE))))
+                        .addGap(0, 5, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,7 +226,11 @@ public class FacturaView extends JDialog implements Observer {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(118, 118, 118)
-                        .addComponent(borrarlineaBtn)))
+                        .addComponent(borrarlineaBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(pagarBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(despacharBtn)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(guardarFld)
@@ -287,6 +300,7 @@ public class FacturaView extends JDialog implements Observer {
     public javax.swing.JButton cancelarFld;
     private javax.swing.JLabel clienteLbl;
     public javax.swing.JComboBox clientecBox;
+    private javax.swing.JButton despacharBtn;
     private javax.swing.JLabel empleadoLbl;
     public javax.swing.JComboBox empleadocbox;
     public javax.swing.JCheckBox estadoFldCancelada;
@@ -303,6 +317,7 @@ public class FacturaView extends JDialog implements Observer {
     private javax.swing.JLabel numFLbl;
     public javax.swing.JTextField numFld;
     public javax.swing.JLabel numLbl;
+    private javax.swing.JButton pagarBtn;
     private javax.swing.JLabel productoLbl;
     private javax.swing.ButtonGroup sexoFld;
     // End of variables declaration//GEN-END:variables

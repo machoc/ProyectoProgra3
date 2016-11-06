@@ -187,6 +187,11 @@ public class ApplicationView extends javax.swing.JFrame implements Observer {
         });
 
         aboutmenu.setText("About");
+        aboutmenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutmenuActionPerformed(evt);
+            }
+        });
         helpmenu.add(aboutmenu);
 
         exitMenu.setText("Cerrar Sesion");
@@ -272,6 +277,10 @@ public class ApplicationView extends javax.swing.JFrame implements Observer {
     private void f06menuitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f06menuitemActionPerformed
         controller.mostrarFacturaPago();
     }//GEN-LAST:event_f06menuitemActionPerformed
+
+    private void aboutmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutmenuActionPerformed
+        controller.about();
+    }//GEN-LAST:event_aboutmenuActionPerformed
 
     /**
      * @param args the command line arguments

@@ -12,6 +12,7 @@ import ferreteria.logic.Model;
 import ferreteria.presentacion.model.ApplicationModel;
 import ferreteria.presentacion.view.ApplicationView;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -98,6 +99,10 @@ public class ApplicationController {
             return;
         }
         Application.PRODUCTOS_VIEW.setVisible(true);
+    }
+
+    public void about() {
+        JOptionPane.showMessageDialog(null, "Integrantes:\n-Luis Aejandro Castaing Vargas\n-Jason Chaves\n-Maria Fernanda Hidalgo");
     }
 
     
