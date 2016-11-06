@@ -58,10 +58,10 @@ Empleado varchar(10) not null,
 primary key(numFactura)
 );
 
-ALTER TABLE Factura ADD foreign key(Cliente) references Cliente(idCliente);
-ALTER TABLE Factura ADD foreign key(Empleado) references Empleado(idEmpleado);
+ALTER TABLE Factura ADD foreign key(Cliente) references Cliente(idCliente) on delete cascade on update cascade;
+ALTER TABLE Factura ADD foreign key(Empleado) references Empleado(idEmpleado) on delete cascade on update cascade;
 
-insert into Factura (numFactura,fecha,hora,cancelada,despachada,numFerreteria,Cliente,Empleado) values ('000', '24/10/2016', '05:09',false,false,'24567898', '111', '207580624');
+insert into Factura (numFactura,fecha,hora,cancelada,despachada,numFerreteria,Cliente,Empleado) values ('000', '24/10/2016', '05:09',false,false,'24567898', '111', '111');
 
 create table Lineas(
 numFactura1 varchar(10) not null,
@@ -70,10 +70,12 @@ codigo varchar(6) not null,
 primary key(numFactura1)
 );
 
-ALTER TABLE Lineas ADD foreign key(numFactura1) references Factura(numFactura);
-ALTER TABLE Lineas ADD foreign key(codigo) references Producto(codigo);
+ALTER TABLE Lineas ADD foreign key(numFactura1) references Factura(numFactura) on delete cascade on update cascade;
+ALTER TABLE Lineas ADD foreign key(codigo) references Producto(codigo)on delete cascade on update cascade;
 
 insert into Lineas(numFactura1,cantidad,codigo) values ('000',3,'061096');
+
+
 
 
 

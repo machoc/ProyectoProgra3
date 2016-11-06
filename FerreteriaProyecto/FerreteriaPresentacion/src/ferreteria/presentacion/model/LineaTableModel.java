@@ -46,6 +46,7 @@ public class LineaTableModel extends AbstractTableModel {
         switch (cols[col]){
             case NUM_FACTURA: return linea.getNumFactura();
             case CODIGO: return linea.getCodigo(); 
+            case CANTIDAD: return linea.getCantidad();
             default: return "";
         }
     }   
@@ -56,12 +57,14 @@ public class LineaTableModel extends AbstractTableModel {
     
     public static final int NUM_FACTURA=0;
     public static final int CODIGO=1; 
+    public static final int CANTIDAD=2;
     
-    String[] colNames = new String[2];
+    String[] colNames = new String[3];
     
     private void initColNames(){
         colNames[NUM_FACTURA]= "Numero Factura";
         colNames[CODIGO]= "Codigo";
+        colNames[CANTIDAD] = "Cantidad";
     }
     
 }

@@ -50,7 +50,7 @@ public class FacturaModel extends Observable{
     }
 
     public void setLineas(List<Lineas> lineas) {
-        int cols[] = {LineaTableModel.NUM_FACTURA,LineaTableModel.CODIGO};
+        int cols[] = {LineaTableModel.NUM_FACTURA,LineaTableModel.CODIGO,LineaTableModel.CANTIDAD};
         this.lineas = new LineaTableModel(cols,lineas);
         setChanged();
         notifyObservers();
