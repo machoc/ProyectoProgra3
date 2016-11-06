@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>50</y>
+      <w>210</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Empleado
+--
+-idEmpleado
+-NombreEmpleado
+-Contrasena
+-TipoAdmi
+-TipoVendedor
+-TipoCajero
+-TipoBodega
+-TipoDespachador</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>290</y>
+      <w>210</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Cliente
+--
+-idCliente
+-NombreCliente
+-TelefonoCliente
+-Descuento
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>110</y>
+      <w>250</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=*
+</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0;130.0;70.0;230.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>220</y>
+      <w>250</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=*
+</panel_attributes>
+    <additional_attributes>10.0;120.0;130.0;120.0;130.0;10.0;230.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>470</x>
+      <y>120</y>
+      <w>210</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Factura
+--
+-Fecha
+-Hora
+-Cancelada
+-Despachada
+-num_factura
+-num_ferreteria
+-Cliente(idCliente)
+-Empleado(idEmpleado)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>400</y>
+      <w>210</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Lineas
+--
+-Factura
+-Codigo(Producto)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>270</y>
+      <w>90</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>
+m1=1
+m2=*
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;70.0;60.0;70.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>760</x>
+      <y>260</y>
+      <w>210</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Producto
+--
+-Codigo
+-Precio
+-NombreProducto
+-cantExistencias
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>350</y>
+      <w>140</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>
+m1=*
+m2=1
+</panel_attributes>
+    <additional_attributes>10.0;110.0;120.0;110.0;120.0;10.0</additional_attributes>
+  </element>
+</diagram>
