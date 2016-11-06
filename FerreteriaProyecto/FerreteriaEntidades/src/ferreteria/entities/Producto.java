@@ -11,12 +11,12 @@ package ferreteria.entities;
  */
 public class Producto {
     
-    private String codigo;
-    private String precio;
+    private int codigo;
+    private int precio;
     private String nombreProducto;
-    private String cantExistencias;
+    private int cantExistencias;
 
-    public Producto(String codigo, String nombreProducto,String precio, String cantExistencias) {
+    public Producto(int codigo, String nombreProducto,int precio, int cantExistencias) {
         this.codigo = codigo;
         this.precio = precio;
         this.nombreProducto = nombreProducto;
@@ -24,31 +24,29 @@ public class Producto {
     }
 
     public Producto() {
-        this.codigo = "";
-        this.precio = "";
+        this.codigo = 0;
+        this.precio = 0;
         this.nombreProducto = "";
-        this.cantExistencias = "";
+        this.cantExistencias = 0;
     }
-    
-    
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public String getPrecio() {
+    public int getPrecio() {
         return precio;
     }
 
-    public String getCantExistencias() {
+    public int getCantExistencias() {
         return cantExistencias;
     }
 
-    public void setPrecio(String precio) {
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
 
-    public void setCantExistencias(String cantExistencias) {
+    public void setCantExistencias(int cantExistencias) {
         this.cantExistencias = cantExistencias;
     }
 
@@ -56,7 +54,7 @@ public class Producto {
         return nombreProducto;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 

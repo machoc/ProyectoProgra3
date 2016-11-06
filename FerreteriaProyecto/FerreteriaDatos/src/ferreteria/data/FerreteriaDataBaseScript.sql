@@ -4,22 +4,22 @@ CREATE DATABASE Ferreteria;
 use Ferreteria;
 
 create table Producto (
-codigo varchar(6) not null,
-precio varchar(15) not null,
+codigo int not null,
+precio int not null,
 nombreProducto varchar(50) not null,
-cantExistencias varchar(20) not null,
+cantExistencias int not null,
 primary key(codigo)
 );
 
-insert into Producto(codigo,nombreProducto,precio,cantExistencias) values ('25486','Martillo Carpintero Surtek','7000','50');
-insert into Producto(codigo,nombreProducto,precio,cantExistencias) values ('3456','Cuchara China','1000','100');
-insert into Producto(codigo,nombreProducto,precio,cantExistencias) values ('061096','Cuchara Foy Tools','2500','15');
-insert into Producto(codigo,nombreProducto,precio,cantExistencias) values ('221298','Guante Algodon','400','10');
-insert into Producto(codigo,nombreProducto,precio,cantExistencias) values ('4567','Guante Neopreno','1400','50');
-insert into Producto(codigo,nombreProducto,precio,cantExistencias) values ('8897','Espander Plastico','10','150');
-insert into Producto(codigo,nombreProducto,precio,cantExistencias) values ('7854','Espander Fischer','30','200');
-insert into Producto(codigo,nombreProducto,precio,cantExistencias) values ('2223','Desatornillador Cruz Phillips','1000','40');
-insert into Producto(codigo,nombreProducto,precio,cantExistencias) values ('1178','Desatornillador Plano Phillips','1200','30');
+insert into Producto(codigo,nombreProducto,precio,cantExistencias) values (25486,'Martillo Carpintero Surtek',7000,50);
+insert into Producto(codigo,nombreProducto,precio,cantExistencias) values (3456,'Cuchara China',1000,100);
+insert into Producto(codigo,nombreProducto,precio,cantExistencias) values (061096,'Cuchara Foy Tools',2500,15);
+insert into Producto(codigo,nombreProducto,precio,cantExistencias) values (221298,'Guante Algodon',400,10);
+insert into Producto(codigo,nombreProducto,precio,cantExistencias) values (4567,'Guante Neopreno',1400,50);
+insert into Producto(codigo,nombreProducto,precio,cantExistencias) values (8897,'Espander Plastico',10,150);
+insert into Producto(codigo,nombreProducto,precio,cantExistencias) values (7854,'Espander Fischer',30,200);
+insert into Producto(codigo,nombreProducto,precio,cantExistencias) values (2223,'Desatornillador Cruz Phillips',1000,40);
+insert into Producto(codigo,nombreProducto,precio,cantExistencias) values (1178,'Desatornillador Plano Phillips',1200,30);
 
 create table Cliente (
 idCliente varchar(10) not null,

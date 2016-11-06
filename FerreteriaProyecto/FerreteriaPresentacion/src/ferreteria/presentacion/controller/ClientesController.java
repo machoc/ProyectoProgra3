@@ -63,7 +63,7 @@ public class ClientesController {
     public void preAgregar(){
         model.clearErrors();        
         Empleado principal = (Empleado) session.getAttribute(Application.USER_ATTRIBUTE);
-        if ( !Arrays.asList(Application.ROL_ADMINISTRADOR).contains(principal.getRol())){
+        if ( !Arrays.asList(Application.ROL_VENDEDOR).contains(principal.getRol())){
             model.setMensaje(Application.ROL_NOTAUTHORIZED);
             model.commit();
             return;

@@ -46,7 +46,7 @@ public class ProductoController {
 
         Producto nuevo = new Producto();
       
-        nuevo.setCodigo(view.codigoFld.getText());
+        nuevo.setCodigo(Integer.parseInt(view.codigoFld.getText()));
         if (view.codigoFld.getText().length()==0){
             model.getErrores().put("codigo", "Codigo requerido");
         }
@@ -56,12 +56,12 @@ public class ProductoController {
             model.getErrores().put("nombre", "Nombre requerido");
         }
         
-        nuevo.setPrecio(view.precioFld.getText());
+        nuevo.setPrecio(Integer.parseInt(view.precioFld.getText()));
         if (view.nombreFld.getText().length()==0){
             model.getErrores().put("precio", "Precio requerido");
         }
         
-        nuevo.setCantExistencias(view.cantidadFld.getText());
+        nuevo.setCantExistencias(Integer.parseInt(view.cantidadFld.getText()));
         if (view.nombreFld.getText().length()==0){
             model.getErrores().put("cantidad", "Cantidad requerida");
         }

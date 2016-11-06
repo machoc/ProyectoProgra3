@@ -211,7 +211,7 @@ public class ProductoView extends JDialog implements Observer {
         
        this.codigoFld.setEnabled(model.getModo()==Application.MODO_AGREGAR);
        
-       codigoFld.setText(productoCurrent.getCodigo());
+       codigoFld.setText(String.valueOf(productoCurrent.getCodigo()));
        if (model.getErrores().get("codigo")!=null){
             codigoLbl.setBorder(Application.BORDER_ERROR);
             codigoLbl.setToolTipText(model.getErrores().get("codigo"));
@@ -235,7 +235,7 @@ public class ProductoView extends JDialog implements Observer {
         }
 
         precioFld.setEnabled(editable);
-        precioFld.setText(productoCurrent.getPrecio());
+        precioFld.setText(String.valueOf(productoCurrent.getPrecio()));
         if (model.getErrores().get("precio")!=null){
             precioLbl.setBorder(Application.BORDER_ERROR);
             precioLbl.setToolTipText(model.getErrores().get("precio"));
@@ -246,7 +246,7 @@ public class ProductoView extends JDialog implements Observer {
         }
         
         cantidadFld.setEnabled(editable);
-        cantidadFld.setText(productoCurrent.getCantExistencias());
+        cantidadFld.setText(String.valueOf(productoCurrent.getCantExistencias()));
         if (model.getErrores().get("cantExistencias")!=null){
             cantidadLbl.setBorder(Application.BORDER_ERROR);
             cantidadLbl.setToolTipText(model.getErrores().get("cantExistencias"));

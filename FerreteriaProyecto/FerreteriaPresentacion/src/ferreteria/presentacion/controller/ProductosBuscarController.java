@@ -49,7 +49,7 @@ public class ProductosBuscarController {
 
     public void buscarCodigo() {
         model.clearErrors();
-        model.getFilter().setCodigo(view.coFld.getText());
+        model.getFilter().setCodigo(Integer.parseInt(view.coFld.getText()));
         List<Producto> rows = domainModel.buscarProducto1(model.getFilter());
         if(rows.isEmpty()){
             model.getErrores().put("coFld", "Ningun registro coincide");

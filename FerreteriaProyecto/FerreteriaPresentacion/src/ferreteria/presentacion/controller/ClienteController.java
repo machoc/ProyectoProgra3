@@ -89,7 +89,7 @@ public class ClienteController {
                 model.getErrores().put("idCliente", "Cliente ya existe");
                 model.setMensaje("CLIENTE YA EXISTE");
                 model.setCurrent(nuevo);
-            }
+            }    
         }
         else{
             model.setMensaje("HAY ERRORES ...");

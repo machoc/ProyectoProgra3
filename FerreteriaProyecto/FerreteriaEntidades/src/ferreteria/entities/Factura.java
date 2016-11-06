@@ -120,6 +120,22 @@ public class Factura {
         return voucher;
     }
     
+     public int calculaTotal ()
+    {
+       int total = 0;
+        for (int i = 0; i < getLinea().size(); i++) {
+            total += ((Lineas)getLinea().get(i)).getCodigo().getPrecio()*((Lineas)getLinea().get(i)).getCantidad();
+        }
+        this.setTotal(total);
+       
+        return this.total;
+    }
+    
+    public double sumaTotales ()
+    {
+        return  this.tEfectivo + this.tTarjeta;
+    }
+    
     public void anadirLinea (Lineas aux)
     {
         this.linea.add(aux);

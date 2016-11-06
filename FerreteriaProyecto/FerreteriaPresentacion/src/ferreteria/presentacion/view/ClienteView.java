@@ -11,6 +11,8 @@ import ferreteria.presentacion.controller.ClienteController;
 import ferreteria.presentacion.model.ClienteModel;
 import java.util.Arrays;
 import java.util.Observer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -133,7 +135,9 @@ public class ClienteView extends javax.swing.JDialog implements Observer {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarFldActionPerformed
-        this.controller.guardar();
+        
+            this.controller.guardar();
+        
     }//GEN-LAST:event_guardarFldActionPerformed
 
     private void cancelarFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarFldActionPerformed

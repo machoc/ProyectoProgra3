@@ -33,7 +33,7 @@ public class Dao {
     
     public void insertarProducto(Producto p) throws Exception{
         String sql="insert into Producto (codigo, nombreProducto,precio, cantExistencias)"+
-                "values('%s','%s','%s','%s','%s')";
+                "values(%i,'%s',%i,%i)";
         sql=String.format(sql,p.getCodigo(),p.getNombreProducto(),p.getPrecio(),p.getCantExistencias());
         int count=db.executeUpdate(sql);
         if (count==0){
@@ -89,7 +89,7 @@ public class Dao {
     }
     
     public void eliminarProducto(Producto p) throws Exception{
-        String sql = "delete from Producto where codigo='%s'";
+        String sql = "delete from Producto where codigo= %i";
         sql=String.format(sql, p.getCodigo());
         int count=db.executeUpdate(sql);
         if(count==0){
@@ -134,8 +134,8 @@ public class Dao {
     }
     
     public void actualizarProducto(Producto p) throws Exception{
-        String sql="update Producto set nombreProducto='%s',precio='%s',cantExistencias= '%s',"+
-                "where codigo='%s'";
+        String sql="update Producto set nombreProducto='%s',precio=%i,cantExistencias= %i,"+
+                "where codigo= %i";
         sql=String.format(sql,p.getNombreProducto(),p.getPrecio(),p.getCantExistencias(),
                 p.getCodigo());
         int count=db.executeUpdate(sql);
@@ -178,7 +178,7 @@ public class Dao {
     }
     
     public Producto ProductoGet(String codigo) throws Exception{
-        String sql="select * from Producto where codigo='%s'";
+        String sql="select * from Producto where codigo=%i";
         sql = String.format(sql,codigo);
         ResultSet rs =  db.executeQuery(sql);
         if (rs.next()) {
@@ -192,10 +192,10 @@ public class Dao {
     private Producto producto(ResultSet rs){
         try {
             Producto p= new Producto();
-            p.setCodigo(rs.getString("codigo"));
+            p.setCodigo(rs.getInt("codigo"));
             p.setNombreProducto(rs.getString("nombreProducto"));
-            p.setPrecio(rs.getString("precio"));
-            p.setCantExistencias(rs.getString("cantExistencias"));
+            p.setPrecio(rs.getInt("precio"));
+            p.setCantExistencias(rs.getInt("cantExistencias"));
             return p;
         } catch (SQLException ex) {
             return null;
