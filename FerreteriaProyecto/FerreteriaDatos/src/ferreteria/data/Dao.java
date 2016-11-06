@@ -419,4 +419,17 @@ public class Dao {
         System.exit(0);
     }
 
+    public List<Lineas> BuscarLineas(Lineas filtro){
+        List<Lineas> resultado8 = new ArrayList<Lineas>();
+        try {
+            String sql="select * from Lineas where numFactura1 like '%%%s%%'";
+            sql=String.format(sql,filtro.getNumFactura());
+            ResultSet rs =  db.executeQuery(sql);
+            while (rs.next()) {
+                resultado8.add(lineas(rs));
+            }
+        } catch (SQLException ex) { }
+        return resultado8;
+    }
+
 }

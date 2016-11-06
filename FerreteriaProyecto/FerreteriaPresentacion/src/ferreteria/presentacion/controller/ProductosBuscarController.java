@@ -61,6 +61,7 @@ public class ProductosBuscarController {
     public void seleccionar(int row){
         Producto seleccionado = model.getPrductos().getRowAt(row); 
         model.setSelected(seleccionado);
+        
         view.setVisible(false);
      }
    

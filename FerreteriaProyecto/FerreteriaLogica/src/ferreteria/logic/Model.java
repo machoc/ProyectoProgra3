@@ -156,5 +156,11 @@ public class Model {
     public void close(){
         dao.close();
     }
+
+    public List<Lineas> buscarLinea(Lineas filtro) {
+        return dao.BuscarLineas(filtro);
+    }
+
+    
     
 }

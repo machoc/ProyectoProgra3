@@ -61,6 +61,7 @@ public class FacturaView extends JDialog implements Observer {
         buscarButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         lineasFld = new javax.swing.JTable();
+        borrarlineaBtn = new javax.swing.JButton();
 
         setTitle("FACTURA");
         setIconImage(null);
@@ -119,6 +120,13 @@ public class FacturaView extends JDialog implements Observer {
         ));
         jScrollPane1.setViewportView(lineasFld);
 
+        borrarlineaBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ferreteria/presentacion/icons/images.png"))); // NOI18N
+        borrarlineaBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borrarlineaBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -165,12 +173,15 @@ public class FacturaView extends JDialog implements Observer {
                         .addContainerGap(256, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 772, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 772, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(borrarlineaBtn))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(productoLbl)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(buscarButton)))
-                        .addGap(0, 137, Short.MAX_VALUE))))
+                        .addGap(0, 85, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,8 +211,13 @@ public class FacturaView extends JDialog implements Observer {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(productoLbl)
                     .addComponent(buscarButton))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(borrarlineaBtn)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(guardarFld)
@@ -223,6 +239,11 @@ public class FacturaView extends JDialog implements Observer {
     private void buscarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarButtonActionPerformed
         controller.buscar(ERROR);
     }//GEN-LAST:event_buscarButtonActionPerformed
+
+    private void borrarlineaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarlineaBtnActionPerformed
+        int row = this.lineasFld.getSelectedRow();
+        controller.borrar(row);
+    }//GEN-LAST:event_borrarlineaBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,6 +282,7 @@ public class FacturaView extends JDialog implements Observer {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton borrarlineaBtn;
     public javax.swing.JButton buscarButton;
     public javax.swing.JButton cancelarFld;
     private javax.swing.JLabel clienteLbl;

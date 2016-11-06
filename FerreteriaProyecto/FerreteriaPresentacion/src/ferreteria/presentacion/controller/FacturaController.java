@@ -19,6 +19,7 @@ import ferreteria.presentacion.view.FacturaView;
 import java.awt.Dialog;
 import ferreteria.entities.Producto;
 import ferreteria.presentacion.model.ProductosModel;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -114,6 +115,21 @@ public class FacturaController {
 
     public void buscar(int row) {
         Application.PRODUCTOS_BUSCAR.setVisible(true);
+    }
+
+    public void borrar(int row) {
+        model.clearErrors(); 
+        Empleado principal = (Empleado) session.getAttribute(Application.USER_ATTRIBUTE);
+        if ( !Arrays.asList(Application.ROL_CAJERO).contains(principal.getRol())){
+            model.setMensaje(Application.ROL_NOTAUTHORIZED);
+            return;
+        }
+        Lineas seleccionada = model.getLineas().getRowAt(row);
+        try{
+            domainModel.eliminarLinea(seleccionada);
+        } catch (Exception ex) { }
+        List<Lineas> rowsMod = domainModel.buscarLinea(model.getFilter());
+        model.setLineas(rowsMod);
     }
         
 }
