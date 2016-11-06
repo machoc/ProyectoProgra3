@@ -325,22 +325,32 @@ public class FacturaView extends JDialog implements Observer {
        
         Boolean editable = Arrays.asList(Application.MODO_AGREGAR, Application.MODO_EDITAR).contains(model.getModo());
    
+        numFLabel.setText(facturaCurrent.getNumFerreteria());
+       if (model.getErrores().get("num")!=null){
+            numFLabel.setBorder(Application.BORDER_ERROR);
+            numFLabel.setToolTipText(model.getErrores().get("num"));
+        }
+        else{
+            numFLabel.setBorder(null);
+            numFLabel.setToolTipText("");
+        }
+        
         horaFld.setEnabled(editable);
         horaFld.setText(facturaCurrent.getHora());
         if (model.getErrores().get("hora")!=null){
-            fechaLbl.setBorder(Application.BORDER_ERROR);
-            fechaLbl.setToolTipText(model.getErrores().get("hora"));
+            horaLbl.setBorder(Application.BORDER_ERROR);
+            horaLbl.setToolTipText(model.getErrores().get("hora"));
         }
         else{
-           fechaLbl.setBorder(null);
-           fechaLbl.setToolTipText("");
+           horaLbl.setBorder(null);
+           horaLbl.setToolTipText("");
         }
         
         fechaFld.setEnabled(editable);
         fechaFld.setText(facturaCurrent.getFecha());
         if (model.getErrores().get("fecha")!=null){
             fechaLbl.setBorder(Application.BORDER_ERROR);
-            fechaLbl.setToolTipText(model.getErrores().get("nombre"));
+            fechaLbl.setToolTipText(model.getErrores().get("fecha"));
         }
         else{
            fechaLbl.setBorder(null);

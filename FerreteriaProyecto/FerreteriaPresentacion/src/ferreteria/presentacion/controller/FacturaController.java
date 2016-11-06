@@ -56,7 +56,7 @@ public class FacturaController {
             model.getErrores().put("num", "Numero requerido");
         }
         
-        nueva.setFecha(model.getCurrent().getNumFerreteria());
+        nueva.setFecha(model.getCurrent().getFecha());
         if (view.fechaFld.getText().length()==0){
             model.getErrores().put("fecha", "Fecha requerida");
         }

@@ -78,4 +78,3 @@ insert into Lineas(numFactura1,cantidad,codigo) values ('000',3,'061096');
 
 
 
-

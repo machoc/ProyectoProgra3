@@ -7,8 +7,6 @@ package ferreteria.presentacion.model;
 
 import ferreteria.entities.Factura;
 import java.util.List;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.table.AbstractTableModel;
 
 /**
