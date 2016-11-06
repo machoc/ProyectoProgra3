@@ -62,10 +62,6 @@ public class ProductosBuscarController {
     public void seleccionar(int row){
         Producto seleccionado = model.getPrductos().getRowAt(row); 
         model.setSelected(seleccionado);
-        Producto p;
-        Factura f;
-        List<Lineas> lineas = null;
-        lineas.add(new Lineas(f.getNumFactura(),p.getCodigo()));
         view.setVisible(false);
      }
    
