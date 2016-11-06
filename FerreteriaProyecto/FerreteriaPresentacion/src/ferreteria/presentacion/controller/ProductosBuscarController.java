@@ -10,6 +10,7 @@ import ferreteria.entities.Factura;
 import ferreteria.entities.Lineas;
 import ferreteria.entities.Producto;
 import ferreteria.logic.Model;
+import ferreteria.presentacion.model.FacturaModel;
 import ferreteria.presentacion.model.ProductosBuscarModel;
 import ferreteria.presentacion.view.ProductosBuscarView;
 import java.util.List;
@@ -22,9 +23,7 @@ public class ProductosBuscarController {
     Model domainModel;
     Session session;
     ProductosBuscarView view;
-    ProductosBuscarModel model;
-    
-    
+    ProductosBuscarModel model;    
 
     public ProductosBuscarController(ProductosBuscarView view, ProductosBuscarModel model, Model domainModel, Session session) {
         model.init();
