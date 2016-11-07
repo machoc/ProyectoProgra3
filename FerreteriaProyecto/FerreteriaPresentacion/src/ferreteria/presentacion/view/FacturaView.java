@@ -8,8 +8,10 @@ package ferreteria.presentacion.view;
 import com.itextpdf.text.DocumentException;
 import ferreteria.Application;
 import ferreteria.entities.Factura;
+import ferreteria.entities.Lineas;
 import ferreteria.presentacion.controller.FacturaController;
 import ferreteria.presentacion.model.FacturaModel;
+import ferreteria.presentacion.model.LineaTableModel;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Observable;
@@ -18,6 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -68,6 +71,8 @@ public class FacturaView extends JDialog implements Observer {
         borrarlineaBtn = new javax.swing.JButton();
         pagarBtn = new javax.swing.JButton();
         despacharBtn = new javax.swing.JButton();
+        totalLbl = new javax.swing.JLabel();
+        totalFld = new javax.swing.JTextField();
 
         setTitle("FACTURA");
         setIconImage(null);
@@ -142,6 +147,8 @@ public class FacturaView extends JDialog implements Observer {
 
         despacharBtn.setText("DESPACHAR");
 
+        totalLbl.setText("Total:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -190,11 +197,19 @@ public class FacturaView extends JDialog implements Observer {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 772, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(borrarlineaBtn)
-                                    .addComponent(pagarBtn)
-                                    .addComponent(despacharBtn)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(borrarlineaBtn)
+                                            .addComponent(pagarBtn)
+                                            .addComponent(despacharBtn)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(40, 40, 40)
+                                        .addComponent(totalLbl))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(totalFld, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(productoLbl)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -239,7 +254,11 @@ public class FacturaView extends JDialog implements Observer {
                         .addGap(18, 18, 18)
                         .addComponent(pagarBtn)
                         .addGap(18, 18, 18)
-                        .addComponent(despacharBtn)))
+                        .addComponent(despacharBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(totalLbl)
+                        .addGap(10, 10, 10)
+                        .addComponent(totalFld, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(guardarFld)
@@ -337,10 +356,13 @@ public class FacturaView extends JDialog implements Observer {
     private javax.swing.JButton pagarBtn;
     private javax.swing.JLabel productoLbl;
     private javax.swing.ButtonGroup sexoFld;
+    public javax.swing.JTextField totalFld;
+    private javax.swing.JLabel totalLbl;
     // End of variables declaration//GEN-END:variables
     
     FacturaModel model;
     FacturaController controller;
+   
 
     public void setController(FacturaController controller) {
         this.controller = controller;
@@ -364,8 +386,8 @@ public class FacturaView extends JDialog implements Observer {
     @Override
    public void update(Observable updatedModel,Object parametros){
        Factura facturaCurrent = model.getCurrent();
-        
        this.numFld.setEnabled(model.getModo()==Application.MODO_AGREGAR);
+       totalFld.setText(totalFld.getText()+model.getCurrent().calculaTotal());
        
        numFld.setText(facturaCurrent.getNumFactura());
        if (model.getErrores().get("num")!=null){
