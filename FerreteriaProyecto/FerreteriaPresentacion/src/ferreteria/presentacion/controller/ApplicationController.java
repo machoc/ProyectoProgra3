@@ -11,8 +11,6 @@ import ferreteria.entities.Empleado;
 import ferreteria.logic.Model;
 import ferreteria.presentacion.model.ApplicationModel;
 import ferreteria.presentacion.view.ApplicationView;
-import java.awt.KeyboardFocusManager;
-import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 
