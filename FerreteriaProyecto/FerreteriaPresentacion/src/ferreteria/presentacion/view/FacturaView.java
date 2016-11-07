@@ -5,13 +5,17 @@
  */
 package ferreteria.presentacion.view;
 
+import com.itextpdf.text.DocumentException;
 import ferreteria.Application;
 import ferreteria.entities.Factura;
 import ferreteria.presentacion.controller.FacturaController;
 import ferreteria.presentacion.model.FacturaModel;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
@@ -130,6 +134,11 @@ public class FacturaView extends JDialog implements Observer {
         });
 
         pagarBtn.setText("PAGAR");
+        pagarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pagarBtnActionPerformed(evt);
+            }
+        });
 
         despacharBtn.setText("DESPACHAR");
 
@@ -257,6 +266,14 @@ public class FacturaView extends JDialog implements Observer {
         int row = this.lineasFld.getSelectedRow();
         controller.borrar(row);
     }//GEN-LAST:event_borrarlineaBtnActionPerformed
+
+    private void pagarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagarBtnActionPerformed
+        try {
+            controller.pagar();
+        } catch (DocumentException | IOException ex) {
+            Logger.getLogger(FacturaView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_pagarBtnActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,6 +5,9 @@
  */
 package ferreteria.presentacion.controller;
 
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import ferreteria.Application;
 import ferreteria.Session;
 import ferreteria.entities.Cliente;
@@ -19,6 +22,11 @@ import ferreteria.presentacion.view.FacturaView;
 import java.awt.Dialog;
 import ferreteria.entities.Producto;
 import ferreteria.presentacion.model.ProductosModel;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -131,5 +139,34 @@ public class FacturaController {
         List<Lineas> rowsMod = domainModel.buscarLinea(model.getFilter());
         model.setLineas(rowsMod);
     }
+
+    public void pagar() throws FileNotFoundException, DocumentException, IOException
+    {  
+      FileOutputStream archivo = new FileOutputStream("Factura.pdf");
+      com.itextpdf.text.Document documento = new com.itextpdf.text.Document();
+      PdfWriter.getInstance(documento, archivo);
+      documento.open();
+      documento.add(new Paragraph("                                          FERRETERIA"));
+      documento.add(new Paragraph("                                            Factura # " + model.getCurrent().getNumFactura()));
+      documento.add(new Paragraph("                                             Cliente:  " + model.getCurrent().getIdCliente()));
+      documento.add(new Paragraph("                                             Vendedor:  " + model.getCurrent().getIdEmpleado()));
+      documento.add(new Paragraph());
+     
+      for(int i=0; i<model.getCurrent().getLinea().size(); i++)
+      {
+          Lineas l = new Lineas();
+          l = (Lineas)model.getCurrent().getLinea().get(i);
+          documento.add(new Paragraph('\n'+ "Código: "+ l.getCodigo() + "   " + l.getCodigo().getNombreProducto()+ "   Cantidad: "+ l.getCantidad()+ "   Monto: "+ l.total() + " colones"));
+      }
+      documento.add(new Paragraph('\n'+"             Total a pagar: " + "                               "+ model.getCurrent().calculaTotal()+  " colones") );
+      documento.close();
+    
+
+
+
+        File myFile = new File("Factura.pdf");
+        Desktop.getDesktop().open(myFile);
+    }
+    
         
 }

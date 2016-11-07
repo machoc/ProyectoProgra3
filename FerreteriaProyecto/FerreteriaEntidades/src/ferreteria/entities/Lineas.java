@@ -14,11 +14,20 @@ public class Lineas {
     private Factura numFactura;
     private Producto codigo;
     private int cantidad;
+    private Producto prod;
 
     public Lineas(Factura numFactura, Producto codigo,int cantidad) {
         this.numFactura = numFactura;
         this.codigo = codigo;
         this.cantidad = cantidad;
+    }
+
+    public void setProd(Producto prod) {
+        this.prod = prod;
+    }
+
+    public Producto getProd() {
+        return prod;
     }
 
     public Lineas() {
@@ -51,7 +60,9 @@ public class Lineas {
         this.codigo = codigo;
     }
     
-    
+    public int total(){
+        return this.prod.getCantExistencias()*this.prod.getPrecio();
+    }
     
     
     
