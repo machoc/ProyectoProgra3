@@ -25,12 +25,12 @@ create table Cliente (
 idCliente varchar(10) not null,
 nombreCliente varchar(50) not null,
 telefonoCliente varchar(10) not null,
-descuento varchar(10) not null,
+descuento int not null,
 primary key(idCliente)
 );
 
-insert into Cliente(idCliente,nombreCliente,telefonoCliente,descuento) values ('111','Jose','24876543','10');
-insert into Cliente(idCliente,nombreCliente,telefonoCliente,descuento) values ('000','Prueba','000000','0');
+insert into Cliente(idCliente,nombreCliente,telefonoCliente,descuento) values ('111','Jose','24876543',10);
+insert into Cliente(idCliente,nombreCliente,telefonoCliente,descuento) values ('000','Prueba','000000',0);
 
 create table Empleado(
 idEmpleado varchar(10) not null,
@@ -66,14 +66,14 @@ insert into Factura (numFactura,fecha,hora,cancelada,despachada,numFerreteria,Cl
 create table Lineas(
 numFactura1 varchar(10) not null,
 cantidad int not null,
-codigo varchar(6) not null,
+codigo int not null,
 primary key(numFactura1)
 );
 
 ALTER TABLE Lineas ADD foreign key(numFactura1) references Factura(numFactura) on delete cascade on update cascade;
 ALTER TABLE Lineas ADD foreign key(codigo) references Producto(codigo)on delete cascade on update cascade;
 
-insert into Lineas(numFactura1,cantidad,codigo) values ('000',3,'061096');
+insert into Lineas(numFactura1,cantidad,codigo) values ('000',3,061096);
 
 
 
